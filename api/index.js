@@ -3,6 +3,7 @@ import cors from 'cors'
 import mongoose from 'mongoose';
 import updateRoutes from './routes/stock.js'
 import ShowRoutes from './routes/stock.js'
+import path from 'path'
 
 mongoose.connect("mongodb+srv://eugenechanzu:12345@cluster0.u4cht0m.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 .then(()=>{
@@ -11,7 +12,7 @@ mongoose.connect("mongodb+srv://eugenechanzu:12345@cluster0.u4cht0m.mongodb.net/
   console.log(err);
 });
 
-
+ const __dirname =path.resolve();
 const app= express();
 app.use(express.json());
 app.use(cors());
@@ -21,3 +22,9 @@ app.listen(3000,()=>{
 
 app.use('/api/stock',updateRoutes);
 app.use('/api/stock',ShowRoutes);
+
+app.use(express.static(path.json(__dirname,"/client/dist")))
+
+app.get('*', (req,res)=>{
+  res.sendFile(path.join(__dirname,'client','dist','index.html'))
+})

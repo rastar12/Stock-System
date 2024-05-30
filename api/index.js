@@ -23,7 +23,7 @@ app.listen(3000,()=>{
 app.use('/api/stock',updateRoutes);
 app.use('/api/stock',ShowRoutes);
 
-app.use(express.static(path.json(__dirname,"/client/dist")))
+app.use(express.static(path.join(__dirname,"/client/dist")))
 
 app.get('*', (req,res)=>{
   res.sendFile(path.join(__dirname,'client','dist','index.html'))

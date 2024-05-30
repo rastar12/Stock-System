@@ -3,6 +3,7 @@ import cors from 'cors'
 import mongoose from 'mongoose';
 import updateRoutes from './routes/stock.js'
 import ShowRoutes from './routes/stock.js'
+import IndividualRoutes from './routes/stock.js'
 import path from 'path'
 
 mongoose.connect("mongodb+srv://eugenechanzu:12345@cluster0.u4cht0m.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
@@ -22,6 +23,7 @@ app.listen(3000,()=>{
 
 app.use('/api/stock',updateRoutes);
 app.use('/api/stock',ShowRoutes);
+app.use('/api/stock',IndividualRoutes)
 
 app.use(express.static(path.join(__dirname,"/client/dist")))
 

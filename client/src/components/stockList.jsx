@@ -9,7 +9,7 @@ const StockList = () => {
   useEffect(() => {
     const fetchStock = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api/stock/ShowStock');
+        const response = await fetch('/api/stock/ShowStock');
         if (!response.ok) {
           throw new Error('Failed to fetch stock');
         }

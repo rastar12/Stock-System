@@ -1,10 +1,9 @@
 // stockService.js
-import axios from 'axios'
 
 
 export const addStock = async (productType) => {
   try {
-    const response = await fetch('http://localhost:3000/api/stock/UpdateStocks', {
+    const response = await fetch('/api/stock/UpdateStocks', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -21,12 +20,11 @@ export const addStock = async (productType) => {
   }
 };
 
-// other service functions
 
 
 export const getStock = async () => {
   try {
-    const response = await fetch('http://localhost:3000/api/stock/ShowStock');
+    const response = await fetch('/api/stock/ShowStock');
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
@@ -35,4 +33,20 @@ export const getStock = async () => {
     console.error('Error getting stock:', error);
     throw error;
   }
+};
+
+// src/services/stockService.js
+
+
+
+// Function to update individual stock items
+export const addIndividualStock = async (chemical, quantity) => {
+  const response = await fetch('/api/stock/update-individual', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ chemical, quantity }),
+  });
+  return response.json();
 };

@@ -62,13 +62,13 @@ export const UpdateStock= async (req, res) => {
         { name: 'DOD', quantity: 0.25 },
         { name: 'NP9', quantity: 0.175 },
         { name: 'PINE', quantity: 0.05 },
-        { name: 'Color', quantity: 0.02 }
+        { name: 'Color', quantity: 0.002 }
       ],
       "10litre-toilet-cleaner": [
         { name: 'Ungeral', quantity: 0.25 },
         { name: 'IndustrialSalt', quantity: 0.175 },
         { name: 'HCL', quantity: 2 },
-        { name: 'Color', quantity: 0.01 },
+        { name: 'Color', quantity: 0.001 },
         { name: 'Perfume', quantity: 0.015 }
       ]
     };
@@ -95,3 +95,22 @@ export const UpdateStock= async (req, res) => {
       res.status(500).json({ message: 'Server error', error });
     }
   };
+
+// to update individual Chemical
+export const Individual= async (req, res) => {
+  const { chemical, quantity } = req.body;
+
+  try {
+    const stock = await Stock.findById("6658484b1b19771a20d56061"); 
+
+    if (stock && stock[chemical] !== undefined) {
+      stock[chemical] += parseFloat(quantity);
+      await stock.save();
+      res.status(200).json({ message: 'Stock updated successfully', stock });
+    } else {
+      res.status(400).json({ message: 'Invalid chemical name' });
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};

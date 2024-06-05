@@ -1,4 +1,3 @@
-
 import express from 'express';
 import { 
   ShowStock, 
@@ -11,8 +10,8 @@ import {
 const router = express.Router();
 
 router.get('/ShowStock', ShowStock);
-router.put('/UpdateStock', UpdateStock);
-router.put('/update-individual', Individual);
+router.post('/UpdateStock', UpdateStock);
+router.post('/update-individual', Individual);
 router.get('/stocks/profit/:chemical', calculateIndividualProfitAndBuyingPrice);
 router.get('/totalProfit', calculateTotalProfitAndBuyingPrice);
 

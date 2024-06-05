@@ -3,7 +3,7 @@
 
 export const addStock = async (productType) => {
   try {
-    const response = await fetch('/api/stock/UpdateStocks', {
+    const response = await fetch('/api/stock/UpdateStock', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

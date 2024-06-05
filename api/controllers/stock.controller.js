@@ -99,7 +99,7 @@ export const Individual = async (req, res) => {
   const { chemical, quantity } = req.body;
 
   try {
-    const stock = await Stock.findById("6659a5511964f3a7ba5c61ac");
+    const stock = await Stock.findById("666049aba3a634f7d4d03622");
 
     if (stock && stock[chemical] !== undefined) {
       stock[chemical] += parseFloat(quantity);

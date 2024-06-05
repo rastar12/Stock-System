@@ -1,6 +1,5 @@
 import mongoose from 'mongoose';
 
-
 const stockSchema = new mongoose.Schema({
   Ungeral: {
     quantity: { type: Number, default: 0 },

@@ -1,14 +1,19 @@
-import express from 'express';
 
-import { UpdateStock, ShowStock, Individual } from '../controllers/stock.controller.js';
+import express from 'express';
+import { 
+  ShowStock, 
+  UpdateStock, 
+  Individual, 
+  calculateIndividualProfitAndBuyingPrice, 
+  calculateTotalProfitAndBuyingPrice 
+} from './controllers/stockController.js';
 
 const router = express.Router();
 
-router.post('/UpdateStocks',UpdateStock)
-router.get('/ShowStock',ShowStock)
-router.post('/update-individual',Individual)
-
-
+router.get('/ShowStock', ShowStock);
+router.put('/UpdateStock', UpdateStock);
+router.put('/update-individual', Individual);
+router.get('/stocks/profit/:chemical', calculateIndividualProfitAndBuyingPrice);
+router.get('/totalProfit', calculateTotalProfitAndBuyingPrice);
 
 export default router;
-

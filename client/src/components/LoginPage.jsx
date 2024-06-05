@@ -14,7 +14,7 @@ export default function LoginPage() {
     setLoading(true);
 
     setTimeout(() => {
-      if (userName === "admin" && password === "12345") {
+      if (userName === "Mbale" && password === "Mbale2024") {
         setLoginSuccess(true);
         navigate('/home'); 
       } else {

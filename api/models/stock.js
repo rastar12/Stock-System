@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-
+/*
 const stockSchema = new mongoose.Schema({
   Ungeral: { type: Number, default: 0 },
   Ufacid: { type: Number, default: 0 },
@@ -26,9 +26,10 @@ const stockSchema = new mongoose.Schema({
 const Stock = mongoose.model('Stock', stockSchema);
 
 export default Stock;
+*/
 
-// to be update soon 
-/*
+// to be update soon  version 2.0 prototype
+
 import mongoose from 'mongoose';
 
 
@@ -159,5 +160,3 @@ const stockSchema = new mongoose.Schema({
 const Stock = mongoose.model('Stock', stockSchema);
 
 export default Stock;
-
- */

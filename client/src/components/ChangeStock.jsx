@@ -1,4 +1,4 @@
-import StockUpdateButton from './StockUpdateButton.jsx';
+import StockUpdateButton from './UpdateStock.jsx'
 import React from 'react';
 import { Link } from 'react-router-dom';
 

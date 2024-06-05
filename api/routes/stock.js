@@ -1,8 +1,8 @@
 import express from 'express';
-import { 
-  ShowStock, 
-  UpdateStock, 
-  Individual, 
+import {
+  ShowStock,
+  UpdateStock,
+  Individual,
   calculateIndividualProfitAndBuyingPrice, 
   calculateTotalProfitAndBuyingPrice 
 } from '../controllers/stock.controller.js';

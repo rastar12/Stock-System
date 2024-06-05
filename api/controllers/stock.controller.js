@@ -1,9 +1,11 @@
-import Stock from '../models/stock.js'
+
+
+import Stock from '../models/stock.js';
 
 // Get the stock
 export const ShowStock = async (req, res) => {
   try {
-    const stock = await Stock.findOne();  // Fetch the single stock document
+    const stock = await Stock.findOne();
     res.status(200).json(stock);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -84,7 +86,9 @@ export const UpdateStock = async (req, res) => {
     }
 
     selectedProduct.forEach(item => {
-      stock[item.name] += item.quantity;
+      if (stock[item.name]) {
+        stock[item.name].quantity += item.quantity;
+      }
     });
 
     await stock.save();
@@ -99,10 +103,10 @@ export const Individual = async (req, res) => {
   const { chemical, quantity } = req.body;
 
   try {
-    const stock = await Stock.findById("666049aba3a634f7d4d03622");
+    const stock = await Stock.findOne();
 
-    if (stock && stock[chemical] !== undefined) {
-      stock[chemical] += parseFloat(quantity);
+    if (stock && stock[chemical]) {
+      stock[chemical].quantity += parseFloat(quantity);
       await stock.save();
       res.status(200).json({ message: 'Stock updated successfully', stock });
     } else {
@@ -165,5 +169,4 @@ export const calculateTotalProfitAndBuyingPrice = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-
 

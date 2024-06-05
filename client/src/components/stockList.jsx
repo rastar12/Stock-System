@@ -1,6 +1,5 @@
-// src/Stock.js
-
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const StockList = () => {
   const [stockData, setStockData] = useState(null);
@@ -80,11 +79,10 @@ const StockList = () => {
       </table>
       <br/>
       <Link to="/Home" className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">
-          Go Back
-        </Link>
+        Go Back
+      </Link>
     </div>
   );
 };
 
 export default StockList;
-

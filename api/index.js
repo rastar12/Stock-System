@@ -1,36 +1,30 @@
 import express from 'express';
-import cors from 'cors'
+import cors from 'cors';
 import mongoose from 'mongoose';
-import updateRoutes from './routes/stock.js'
-import ShowRoutes from './routes/stock.js'
-import IndividualRoutes from './routes/stock.js'
-import calculateIndividualRoutes from './routes/stock.js';
-import calculateTotalRoutes from './routes/stock.js';
-import path from 'path'
+import stockRoutes from './routes/stock.js';
+import path from 'path';
 
 mongoose.connect("mongodb+srv://eugenechanzu:12345@cluster0.u4cht0m.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
-.then(()=>{
-  console.log("connected to database");
-}).catch((err)=>{
-  console.log(err);
-});
+  .then(() => {
+    console.log("Connected to database");
+  })
+  .catch((err) => {
+    console.error(err);
+  });
 
- const __dirname =path.resolve();
-const app= express();
+const app = express();
 app.use(express.json());
 app.use(cors());
-app.listen(3000,()=>{
-  console.log("connected to port 3000");
-})
 
-app.use('/api/stock',updateRoutes);
-app.use('/api/stock',ShowRoutes);
-app.use('/api/stock',IndividualRoutes);
-app.use('/api/stock',calculateIndividualRoutes);
-app.use('/api/stock',calculateTotalRoutes);
+app.use('/api/stock', stockRoutes);
 
-app.use(express.static(path.join(__dirname,"/client/dist")))
+const __dirname = path.resolve();
+app.use(express.static(path.join(__dirname, "/client/dist")));
 
-app.get('*', (req,res)=>{
-  res.sendFile(path.join(__dirname,'client','dist','index.html'))
-})
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
+});
+
+app.listen(3000, () => {
+  console.log("Server running on port 3000");
+});

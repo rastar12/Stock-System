@@ -1,7 +1,6 @@
-// src/components/IndividualStockUpdateButton.jsx
 import React, { useState } from 'react';
 import { addIndividualStock } from '../services/stockService.js';
-import LoadingSpinner from './LoadingSpinner'; // Import the LoadingSpinner component
+import LoadingSpinner from './LoadingSpinner';
 
 const chemicalOptions = [
   'CDE', 'CMC', 'Caustic', 'Chlorine', 'Color', 'DOD', 'Finesalt', 
@@ -10,7 +9,7 @@ const chemicalOptions = [
 ];
 
 const IndividualStockUpdateButton = () => {
-  const [loading, setLoading] = useState(false); // State to manage loading
+  const [loading, setLoading] = useState(false);
   const [chemical, setChemical] = useState('');
   const [quantity, setQuantity] = useState('');
 
@@ -23,7 +22,7 @@ const IndividualStockUpdateButton = () => {
   };
 
   const handleClick = async () => {
-    setLoading(true); // Set loading to true when the button is clicked
+    setLoading(true);
     try {
       const response = await addIndividualStock(chemical, quantity);
       console.log('Stock updated:', response);
@@ -31,7 +30,7 @@ const IndividualStockUpdateButton = () => {
     } catch (error) {
       alert('Failed to update stock');
     } finally {
-      setLoading(false); // Set loading to false after the request is completed
+      setLoading(false);
     }
   };
 
@@ -66,13 +65,13 @@ const IndividualStockUpdateButton = () => {
       />
 
       {loading ? (
-        <LoadingSpinner /> // Display the loading spinner when loading
+        <LoadingSpinner />
       ) : (
         <button
           onClick={handleClick}
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 shadow-lg transform transition-transform hover:scale-105"
         >
-          Update Individual Stock
+          Update Stock
         </button>
       )}
     </div>

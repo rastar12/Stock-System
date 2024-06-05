@@ -1,4 +1,4 @@
-import Stock from '../models/stock.js';
+import Stock from '../models/stock.js'
 
 // Get the stock
 export const ShowStock = async (req, res) => {

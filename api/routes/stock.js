@@ -6,7 +6,7 @@ import {
   Individual, 
   calculateIndividualProfitAndBuyingPrice, 
   calculateTotalProfitAndBuyingPrice 
-} from './controllers/stockController.js';
+} from '../controllers/stock.controller.js';
 
 const router = express.Router();
 

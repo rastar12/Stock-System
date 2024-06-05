@@ -26,7 +26,7 @@ app.listen(3000,()=>{
 app.use('/api/stock',updateRoutes);
 app.use('/api/stock',ShowRoutes);
 app.use('/api/stock',IndividualRoutes);
-app.usee('/api/stock',calculateIndividualRoutes);
+app.use('/api/stock',calculateIndividualRoutes);
 app.use('./api.stock',calculateTotalRoutes);
 
 app.use(express.static(path.join(__dirname,"/client/dist")))

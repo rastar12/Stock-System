@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { getStock } from '../services/stockService.js';
 
 const StockList = () => {
   const [stockData, setStockData] = useState(null);
@@ -7,21 +8,18 @@ const StockList = () => {
 
   useEffect(() => {
     // Fetch stock data
-    fetch('/api/stock/ShowStock')
-      .then(response => response.json())
-      .then(data => setStockData(data))
-      .catch(error => {
-        console.error('Error fetching stock data:', error);
-      });
-
-    // Fetch total profit and buying price
-    fetch('/api/stock/totalProfit')
-      .then(response => response.json())
-      .then(data => setTotalData(data))
-      .catch(error => {
-        console.error('Error fetching total data:', error);
-      });
+    fetchStockData();
   }, []);
+
+  const fetchStockData = async () => {
+    try {
+      const data = await getStock();
+      setStockData(data.stock);
+      setTotalData(data.totalData);
+    } catch (error) {
+      console.error('Error fetching stock data:', error);
+    }
+  };
 
   if (!stockData || !totalData) {
     return <div>Fetching data please wait...</div>;

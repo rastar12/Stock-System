@@ -16,7 +16,7 @@ export default function LoginPage() {
     setTimeout(() => {
       if (userName === "Mbale" && password === "Mbale2024") {
         setLoginSuccess(true);
-        navigate('/home'); 
+        navigate('/Home'); 
       } else {
         alert("Incorrect login details");
         setLoading(false);

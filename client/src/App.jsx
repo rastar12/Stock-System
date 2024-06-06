@@ -10,7 +10,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<LoginPage />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/Home" element={<Home />} />
         <Route path='/update-stock' element={<UpdateStock/>}/>
         <Route path='/view-stock' element={<StockList/>}/>
         <Route path="/individual-update" element={<IndividualStockUpdateButton/>}/>

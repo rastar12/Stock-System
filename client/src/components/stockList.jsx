@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getStock } from '../services/stockService.js';
+import { getStock } from '../services/stockService.js'
 
 const StockList = () => {
   const [stockData, setStockData] = useState(null);

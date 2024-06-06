@@ -1,6 +1,6 @@
 
 
-export const fetchStock = async () => {
+export const getStock = async () => {
   try {
     const response = await fetch(`api/stock`);
     return await response.json();

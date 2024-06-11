@@ -1,39 +1,52 @@
+// stockService.js
+
+
+export const addStock = async (productType) => {
+  try {
+    const response = await fetch('/api/stock/UpdateStocks', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ productType })
+    });
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return await response.json();
+  } catch (error) {
+    console.error('Error adding stock:', error);
+    throw error;
+  }
+};
+
 
 
 export const getStock = async () => {
   try {
-    const response = await fetch(`api/stock`);
+    const response = await fetch('/api/stock/ShowStock');
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
     return await response.json();
   } catch (error) {
-    console.error('Failed to fetch stock:', error);
+    console.error('Error getting stock:', error);
     throw error;
   }
 };
 
-export const addStock = async (productType) => {
-  try {
-    const response = await fetch(`api/stock/update`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ productType })
-    });
-    return await response.json();
-  } catch (error) {
-    console.error('Failed to add stock:', error);
-    throw error;
-  }
-};
+// src/services/stockService.js
 
+
+
+// Function to update individual stock items
 export const addIndividualStock = async (chemical, quantity) => {
-  try {
-    const response = await fetch(`api/stock/individual`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chemical, quantity })
-    });
-    return await response.json();
-  } catch (error) {
-    console.error('Failed to add individual stock:', error);
-    throw error;
-  }
+  const response = await fetch('/api/stock/update-individual', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ chemical, quantity }),
+  });
+  return response.json();
 };

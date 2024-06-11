@@ -1,15 +1,16 @@
+// src/components/IndividualStockUpdateButton.jsx
 import React, { useState } from 'react';
 import { addIndividualStock } from '../services/stockService.js';
-import LoadingSpinner from './LoadingSpinner';
+import LoadingSpinner from './LoadingSpinner'; // Import the LoadingSpinner component
 
 const chemicalOptions = [
   'CDE', 'CMC', 'Caustic', 'Chlorine', 'Color', 'DOD', 'Finesalt', 
   'Glycerine', 'HCL', 'IndustrialSalt', 'Magadi', 'NP9', 'PINE', 
-  'Pearlizer', 'Pearls', 'Perfume', 'Ufacid', 'UndilutedKerrol', 'Ungeral'
+  'Pearlizer', 'Pearls', 'Perfume', 'Ufacid', 'UndilutedKerrol', 'Ungeral','Tolietballs','Downy'
 ];
 
 const IndividualStockUpdateButton = () => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false); // State to manage loading
   const [chemical, setChemical] = useState('');
   const [quantity, setQuantity] = useState('');
 
@@ -22,7 +23,7 @@ const IndividualStockUpdateButton = () => {
   };
 
   const handleClick = async () => {
-    setLoading(true);
+    setLoading(true); // Set loading to true when the button is clicked
     try {
       const response = await addIndividualStock(chemical, quantity);
       console.log('Stock updated:', response);
@@ -30,7 +31,7 @@ const IndividualStockUpdateButton = () => {
     } catch (error) {
       alert('Failed to update stock');
     } finally {
-      setLoading(false);
+      setLoading(false); // Set loading to false after the request is completed
     }
   };
 
@@ -65,13 +66,13 @@ const IndividualStockUpdateButton = () => {
       />
 
       {loading ? (
-        <LoadingSpinner />
+        <LoadingSpinner /> // Display the loading spinner when loading
       ) : (
         <button
           onClick={handleClick}
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 shadow-lg transform transition-transform hover:scale-105"
         >
-          Update Stock
+          Update Individual Stock
         </button>
       )}
     </div>

@@ -12,7 +12,6 @@ const stockSchema = new mongoose.Schema({
   Perfume: { type: Number, default: 0 },
   Magadi: { type: Number, default: 0 },
   Chlorine: { type: Number, default: 0 },
-  Pearls: { type: Number, default: 0 },
   UndilutedKerrol: { type: Number, default: 0 },
   Finesalt: { type: Number, default: 0 },
   Glycerine: { type: Number, default: 0 },
@@ -22,6 +21,7 @@ const stockSchema = new mongoose.Schema({
   NP9: { type: Number, default: 0 },
   PINE: { type: Number, default: 0 },
   Downy: { type: Number, default: 0 },
+  BioDigester:{type: Number,default: 0},
   ToiletBalls: { type: Number, default: 0 }
 }, { timestamps: true });
 

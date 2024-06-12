@@ -293,6 +293,10 @@ const StockList = () => {
               <td className="px-4 py-2 font-bold">{TotalSellingPrice}</td>
               <td className="px-4 py-2 font-bold">{TotalProfits}</td>
             </tr>
+            <tr className="border-b bg-gray-50">
+              <td className="px-4 py-2 font-semibold">Updated At</td>
+              <td className="px-4 py-2 text-red-500">{new Date(stock.updatedAt).toLocaleString()}</td>
+              </tr>
           </tbody>
         </table>
       </div>

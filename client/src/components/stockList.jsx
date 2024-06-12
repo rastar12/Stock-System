@@ -51,7 +51,7 @@ const StockList = () => {
   const CDEProfit = CDESellingPrice - CDEBuyingPrice;
 
   const ColorBuyingPrice = stock.Color * 300;
-  const ColorSellingPrice = 2000;
+  const ColorSellingPrice = stock.Color*2000;
   const ColorProfit = ColorSellingPrice - ColorBuyingPrice;
 
   const PerfumeBuyingPrice = stock.Perfume * 600;
@@ -78,8 +78,8 @@ const StockList = () => {
   const KerolSellingPrice = stock.UndilutedKerrol * 1400;
   const KerolProfit = KerolSellingPrice - KerolBuyingPrice;
 
-  const FineSaltBuyingPrice = stock.FineSalt * 24;
-  const FineSaltSellingPrice = stock.FineSalt * 60;
+  const FineSaltBuyingPrice = stock.Finesalt * 24;
+  const FineSaltSellingPrice = stock.Finesalt * 60;
   const FineSaltProfit = FineSaltSellingPrice - FineSaltBuyingPrice;
 
   const GlycerineBuyingPrice = stock.Glycerine * 900;
@@ -232,7 +232,7 @@ const StockList = () => {
             </tr>
             <tr className="border-b bg-gray-50">
               <td className="px-4 py-2">Fine Salt</td>
-              <td className="px-4 py-2">{stock.FineSalt}</td>
+              <td className="px-4 py-2">{stock.Finesalt}</td>
               <td className="px-4 py-2">{FineSaltBuyingPrice}</td>
               <td className="px-4 py-2">{FineSaltSellingPrice}</td>
               <td className="px-4 py-2">{FineSaltProfit}</td>

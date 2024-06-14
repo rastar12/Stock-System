@@ -20,10 +20,10 @@ const Home = () => {
         <Link to='/AddreadyMade' className="px-4 py-2 w-full bg-blue-500 text-white rounded hover:bg-blue-600 ">
           Add stock for ready made products
         </Link>
-        <Link to='/readymadetable' className="px-4 py-2 w-full bg-blue-500 text-white rounded hover:bg-blue-600 ">
+        <Link to='/readymadetable' className="px-4 py-2 w-full bg-green-500 text-white rounded hover:bg-blue-600 ">
           View stock for ready made product
         </Link>
-        <Link to="/view-stock" className="px-4 py-2 w-full bg-blue-500 text-white rounded hover:bg-blue-600">
+        <Link to="/view-stock" className="px-4 py-2 w-full bg-green-500 text-white rounded hover:bg-blue-600">
           View Stock
         </Link>
 

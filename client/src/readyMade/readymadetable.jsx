@@ -1,86 +1,78 @@
 import React, { useState, useEffect } from 'react';
 import LoadingSpinner from '../components/LoadingSpinner';
 
-
 export default function ReadyMadeTable() {
+  const [ReadyProduct, setReadyProduct] = useState(null);
 
-      const [ReadyProduct,setReadyProduct] = useState(null);
+  useEffect(() => {
+    const fetchReadyProduct = async () => {
+      try {
+        const response = await fetch('/api/products/ShowReadyProduct');
 
-      useEffect(() => {
-        const fetchReadyProduct = async () => {
-          try {
-            const response = await fetch('/api/products/ShowReadyProduct');
+        if (!response.ok) {
+          throw new Error('Failed to fetch Sold Products');
+        }
+        const data = await response.json();
+        setReadyProduct(data);
+      } catch (error) {
+        console.error('Error fetching stock:', error);
+      }
+    };
+    fetchReadyProduct();
+  }, []);
 
-            if (!response.ok) {
-              throw new Error('Failed to fetch Sold Products');
-            }
-            const data = await response.json();
-            setReadyProduct(data);
+  if (!ReadyProduct) {
+    return <LoadingSpinner />;
+  }
 
-          } catch (error) {
-            console.error('Error fetching stock:', error);
-          }
-        };
-        fetchReadyProduct();
-      }, []);
+  // logic to deal with the remaining stock
+  const LiquidDetergentRemaining = ReadyProduct.AddLiquidDetergent - ReadyProduct.LiquidDetergent;
+  const HandWashRemaining = ReadyProduct.AddHandWash - ReadyProduct.HandWash;
+  const LiquidAntisepticRemaining = ReadyProduct.AddLiquidAntiseptic - ReadyProduct.LiquidAntiseptic;
+  const DownyRemaining = ReadyProduct.AddDowny - ReadyProduct.Downy;
+  const ToiletCleanerRemaining = ReadyProduct.AddToiletCleaner - ReadyProduct.ToiletCleaner;
+  const JikRemaining = ReadyProduct.AddJik - ReadyProduct.Jik;
+  const ShampooRemaining = ReadyProduct.AddShampoo - ReadyProduct.Shampoo;
 
+  // logic to deal with price of sold stock
+  const PriceOfLiquidDetergent = ReadyProduct.LiquidDetergent * 20;
+  const PriceOfToiletCleaner = ReadyProduct.ToiletCleaner * 17;
+  const PriceOfLiquidAnticeptic = ReadyProduct.LiquidAntiseptic * 34;
+  const PriceOfDowny = ReadyProduct.Downy * 69;
+  const PriceOfHandWash = ReadyProduct.HandWash * 27;
+  const PriceOfShampoo = ReadyProduct.Shampoo * 26;
+  const PriceOfJik = ReadyProduct.Jik * 16;
 
-      // logic to deal with the remaining stock
-      const LiquidDetergentRemaining= ReadyProduct.AddLiquidDetergent-ReadyProduct.LiquidDetergent;
-      const HandWashRemaining= ReadyProduct.AddHandWash-ReadyProduct.HandWash;
-      const LiquidAntisepticRemaining= ReadyProduct.AddLiquidAntiseptic-ReadyProduct.LiquidAntiseptic;
-      const DownyRemaining= ReadyProduct.AddDowny-ReadyProduct.Downy;
-      const ToiletCleanerRemaining= ReadyProduct.AddToiletCleaner-ReadyProduct.ToiletCleaner;
-      const JikRemaining= ReadyProduct.AddJik-ReadyProduct.Jik;
-      const ShampooRemaining= ReadyProduct.AddShampoo-ReadyProduct.Shampoo;
+  // logic to calculate the sales made
+  const SalesOfLiquidDetergent = 20 * ReadyProduct.LiquidDetergent;
+  const SalesOfToiletCleaner = 200 * ReadyProduct.ToiletCleaner;
+  const SalesOfLiquidAnticeptic = 200 * ReadyProduct.LiquidAntiseptic;
+  const SalesOfDowny = 200 * ReadyProduct.Downy;
+  const SalesOfHandwash = 120 * ReadyProduct.HandWash;
+  const SalesOfShampoo = 150 * ReadyProduct.Shampoo;
+  const SalesOfJik = 150 * ReadyProduct.Jik;
 
-     //logic to deal with price of sold stock
-     const  PriceOfLiquidDetergent=ReadyProduct.LiquidDetergent*20;
-     const PriceOfToiletCleaner=ReadyProduct.ToiletCleaner*17;
-     const PriceOfLiquidAnticeptic=ReadyProduct.LiquidAntiseptic*34;
-     const PriceOfDowny=ReadyProduct.Downy*69;
-     const PriceOfHandWash=ReadyProduct.HandWash*27;
-     const PriceOfShampoo=ReadyProduct.Shampoo*26;
-     const PriceOfJik=ReadyProduct.Jik*16;
+  // logic to deal with the profits made
+  const ProfitOfLiquidDetergent = SalesOfLiquidDetergent - PriceOfLiquidDetergent;
+  const ProfitOfToiletCleaner = SalesOfToiletCleaner - PriceOfToiletCleaner;
+  const ProfitOfLiquidAnticeptic = SalesOfLiquidAnticeptic - PriceOfLiquidAnticeptic;
+  const ProfitOfDowny = SalesOfDowny - PriceOfDowny;
+  const ProfitOfHandwash = SalesOfHandwash - PriceOfHandWash;
+  const ProfitOfShampoo = SalesOfShampoo - PriceOfShampoo;
+  const ProfitOfJik = SalesOfJik - PriceOfJik;
 
-     // logic to calculate the sales made
-     const SalesOfLiquidDetergent=20*ReadyProduct.LiquidDetergent
-     const SalesOfToiletCleaner=200*ReadyProduct.ToiletCleaner
-     const SalesOfLiquidAnticeptic=200*ReadyProduct.LiquidAntiseptic
-     const SalesOfDowny=200*ReadyProduct.Downy
-     const SalesOfHandwash=120*ReadyProduct.HandWash
-     const SalesOfShampoo=150*ReadyProduct.Shampoo
-     const SalesOfJik=150*ReadyProduct.Jik
+  // logic to deal with the total sales made 
+  const TotalSalesMade = SalesOfDowny + SalesOfHandwash + SalesOfJik + SalesOfLiquidAnticeptic + SalesOfLiquidDetergent + SalesOfShampoo + SalesOfToiletCleaner;
+  
+  // logic to deal with the total profits made 
+  const TotalProfitMade = ProfitOfDowny + ProfitOfHandwash + ProfitOfJik + ProfitOfShampoo + ProfitOfLiquidDetergent + ProfitOfToiletCleaner + ProfitOfLiquidAnticeptic;
 
-     // logic to deal with the profits made
-     const ProfitOfLiquidDetergent=SalesOfLiquidDetergent-PriceOfLiquidDetergent;
-     const ProfitOfToiletCleaner=SalesOfToiletCleaner-PriceOfToiletCleaner;
-     const ProfitOfLiquidAnticeptic=SalesOfLiquidAnticeptic-PriceOfLiquidAnticeptic;
-     const ProfitOfDowny=SalesOfDowny-PriceOfDowny;
-     const ProfitOfHandwash=SalesOfHandwash-PriceOfHandWash;
-     const ProfitOfShampoo=SalesOfShampoo-PriceOfShampoo;
-     const ProfitOfJik=SalesOfJik-PriceOfJik;
-
-     // logic  to deal with the total sales made 
-     const TotalSalesMade=SalesOfDowny+SalesOfHandwash+SalesOfJik+SalesOfLiquidAnticeptic+SalesOfLiquidDetergent
-     +SalesOfShampoo+SalesOfToiletCleaner;
-     // logic to deal withthe total profits made 
-     const TotalProfitMade=
-     ProfitOfDowny+ProfitOfHandwash+ProfitOfJik+ProfitOfShampoo+ProfitOfLiquidDetergent+PriceOfToiletCleaner
-     +ProfitOfLiquidAnticeptic
- // Logic to deal with price of chemical used
- const TotalBuyingPrice=
- PriceOfDowny+PriceOfHandWash+PriceOfJik+PriceOfLiquidAnticeptic+PriceOfLiquidDetergent+
- PriceOfShampoo+PriceOfToiletCleaner;
-
- if(!ReadyProduct){
-  return <LoadingSpinner/>
- };
+  // logic to deal with price of chemical used
+  const TotalBuyingPrice = PriceOfDowny + PriceOfHandWash + PriceOfJik + PriceOfLiquidAnticeptic + PriceOfLiquidDetergent + PriceOfShampoo + PriceOfToiletCleaner;
 
   return (
-<div className="p-4">
- 
-    <h2 className="text-2xl font-semibold mb-4">Ready made stock</h2>
+    <div className="p-4">
+      <h2 className="text-2xl font-semibold mb-4">Ready made stock</h2>
       <div className="overflow-x-auto">
         <table className="min-w-full bg-white border border-gray-200">
           <thead>
@@ -161,12 +153,11 @@ export default function ReadyMadeTable() {
             </tr>
             <tr className="border-b bg-gray-50">
               <td className="px-4 py-2 font-semibold">Updated At</td>
-              <td className="px-4 py-2 text-red-500">{new Date(stock.updatedAt).toLocaleString()}</td>
-              </tr>
+              <td className="px-4 py-2 text-red-500">{new Date(ReadyProduct.updatedAt).toLocaleString()}</td>
+            </tr>
           </tbody>
         </table>
       </div>
-
-  </div>
-  )
+    </div>
+  );
 }

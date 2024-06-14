@@ -72,7 +72,7 @@ export default function LoginPage() {
               </button>
             </div>
           </form>
-          <p className='text-slate-400'>designed by kenyacodeworks</p>
+          <p className='text-slate-400'>Eugene</p>
         </div>
       )}
     </div>

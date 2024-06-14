@@ -8,7 +8,7 @@ const StockReadyMadeSchema = new mongoose.Schema({
  HandWash:{type:Number, default:0},
  LiquidAntiseptic:{type:Number, default:0},
  Shampoo:{type:Number, default:0},
- AddCleaner:{type:Number, default:0},
+ ToiletCleaner:{type:Number, default:0},
  AddLiquidDetergent:{type:Number, default:0},
  AddDowny:{type:Number, default:0},
  AddJik:{type:Number, default:0},

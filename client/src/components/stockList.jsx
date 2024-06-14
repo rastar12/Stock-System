@@ -126,7 +126,7 @@ const StockList = () => {
 
   return (
     <div className="p-4">
-      <h2 className="text-2xl font-semibold mb-4">Stock Details</h2>
+      <h2 className="text-2xl font-semibold mb-4">Chemicals sold details</h2>
       <div className="overflow-x-auto">
         <table className="min-w-full bg-white border border-gray-200">
           <thead>

@@ -14,17 +14,17 @@ const Home = () => {
         <Link to="/individual-update" className="px-4 py-2 w-full bg-blue-500 text-white rounded hover:bg-blue-600">
           Sell Individual Chemicals
         </Link>
-        <Link to="/SellreadyMade" className="px-4 py-2 w-full bg-blue-500 text-white rounded hover:bg-blue-600">
+        <Link to="/SellreadyMade" className="px-4 py-2 w-full bg-green-500 text-white rounded hover:bg-blue-600">
           Sell Ready Made Product
         </Link>
-        <Link to='/AddreadyMade' className="px-4 py-2 w-full bg-blue-500 text-white rounded hover:bg-blue-600 ">
+        <Link to='/AddreadyMade' className="px-4 py-2 w-full bg-green-500 text-white rounded hover:bg-blue-600 ">
           Add stock for ready made products
         </Link>
-        <Link to='/readymadetable' className="px-4 py-2 w-full bg-green-500 text-white rounded hover:bg-blue-600 ">
+        <Link to='/readymadetable' className="px-4 py-2 w-full bg-red-500 text-white rounded hover:bg-blue-600 ">
           View stock for ready made product
         </Link>
-        <Link to="/view-stock" className="px-4 py-2 w-full bg-green-500 text-white rounded hover:bg-blue-600">
-          View Stock
+        <Link to="/view-stock" className="px-4 py-2 w-full bg-red-500 text-white rounded hover:bg-blue-600">
+          View stock for chemicals sold
         </Link>
 
       </div>

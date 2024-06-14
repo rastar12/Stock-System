@@ -47,7 +47,7 @@ export default function ReadyMadeTable() {
   const PriceOfJik = ReadyProduct.Jik * 16;
 
   // logic to calculate the sales made
-  const SalesOfLiquidDetergent = 20 * ReadyProduct.LiquidDetergent;
+  const SalesOfLiquidDetergent = 50 * ReadyProduct.LiquidDetergent;
   const SalesOfToiletCleaner = 200 * ReadyProduct.ToiletCleaner;
   const SalesOfLiquidAnticeptic = 200 * ReadyProduct.LiquidAntiseptic;
   const SalesOfDowny = 200 * ReadyProduct.Downy;

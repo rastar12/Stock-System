@@ -33,7 +33,7 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex items-center justify-center min-h-screen bg-purple-300">
       {loginSuccess ? (
         <div>
           <Home />
@@ -72,7 +72,7 @@ export default function LoginPage() {
               </button>
             </div>
           </form>
-          <p className='text-slate-400'>Eugene</p>
+          <p className='text-slate-400'>kenyaCodeWorks Systems</p>
         </div>
       )}
     </div>

@@ -50,3 +50,16 @@ export const addIndividualStock = async (chemical, quantity) => {
   });
   return response.json();
 };
+// function to update sales 
+
+// function to add ready made 
+export const ReadyMadeStock = async (product, quantity) => {
+  const response = await fetch('/api/products/AddReadyMadeProducts', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ product, quantity }),
+  });
+  return response.json();
+};

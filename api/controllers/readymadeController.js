@@ -6,7 +6,7 @@ export const AddReadyProducts= async (req, res) => {
     const { product,quantity } = req.body;
 
     try {
-      const ReadyProduct = await StockReadyMade.findById("12345");
+      const ReadyProduct = await StockReadyMade.findById("666bdbcc2c678ca006539b49");
 
       if (ReadyProduct && ReadyProduct[product] !== undefined) {
         ReadyProduct[product] += parseFloat(quantity);

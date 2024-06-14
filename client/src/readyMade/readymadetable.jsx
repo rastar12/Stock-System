@@ -7,9 +7,11 @@ export default function ReadyMadeTable() {
   useEffect(() => {
     const fetchReadyProduct = async () => {
       try {
-        const response = await fetch('/api/products/ShowReadyProduct');
-
+        const response = await fetch('/api/products/ShowReadyProducts');
+  
         if (!response.ok) {
+          const text = await response.text();
+          console.error('Failed to fetch Sold Products:', text);
           throw new Error('Failed to fetch Sold Products');
         }
         const data = await response.json();
@@ -20,6 +22,7 @@ export default function ReadyMadeTable() {
     };
     fetchReadyProduct();
   }, []);
+  
 
   if (!ReadyProduct) {
     return <LoadingSpinner />;

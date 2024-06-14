@@ -19,7 +19,7 @@ export const AddReadyProducts= async (req, res) => {
       res.status(500).json({ message: error.message });
     }
   };
-
+/*
   // show remaining ready made stock
   export const ShowReadyProducts = async (req, res) => {
     try {
@@ -28,4 +28,17 @@ export const AddReadyProducts= async (req, res) => {
     } catch (error) {
       res.status(500).json({ message: error.message });
     }
+  };
+*/
+
+  export const ShowReadyProducts = async (req, res) => {
+      try {
+          const readyProduct = await StockReadyMade.findOne();
+          if (!readyProduct) {
+              return res.status(404).json({ message: 'No stock data found' });
+          }
+          res.status(200).json(readyProduct);
+      } catch (error) {
+          res.status(500).json({ message: error.message });
+      }
   };

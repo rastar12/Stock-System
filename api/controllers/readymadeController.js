@@ -1,5 +1,5 @@
 
-import StockReadyMade from '../models/stockProduct'
+import StockReadyMade from '../models/stockProduct.js'
 
 //add ready made stock
 export const AddReadyProducts= async (req, res) => {

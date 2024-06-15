@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { addStock } from '../services/stockService.js';
 
 const StockUpdateButton = ({ productType, label }) => {
   const handleClick = async () => {
+   
     try {
       const response = await addStock(productType);
       console.log('Stock updated:', response);

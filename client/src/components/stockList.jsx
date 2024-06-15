@@ -26,11 +26,11 @@ const StockList = () => {
     return <LoadingSpinner />;
   }
 
-  const UngeralBuyingPrice = stock.Ungeral * 205;
+  const UngeralBuyingPrice = stock.Ungeral * 185;
   const UngeralSellingPrice = stock.Ungeral * 300;
   const UngeralProfit = UngeralSellingPrice - UngeralBuyingPrice;
 
-  const UfacidBuyingPrice = stock.Ufacid * 325;
+  const UfacidBuyingPrice = stock.Ufacid * 310;
   const UfacidSellingPrice = stock.Ufacid * 400;
   const UfacidProfit = UfacidSellingPrice - UfacidBuyingPrice;
 

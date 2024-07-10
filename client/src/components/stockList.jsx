@@ -20,7 +20,7 @@ const StockList = () => {
     };
 
     fetchStock();
-  }, []);
+  }, []); 
 
   if (!stock) {
     return <LoadingSpinner />;
@@ -123,6 +123,29 @@ const StockList = () => {
     PINESellingPrice + ToiletBallsSellingPrice + HCLSellingPrice;
 
   const TotalProfits = TotalSellingPrice - TotalBuyingPrice;
+// to handle the remainin stock
+
+ const remainingUngeral =stock.AddUngeral-stock.ungeral;
+ const remainingUfacid=stock.AddUngeral-stock.Ufacid;
+ const remainingIndustrailSalt=stock.AddIndustrialSalt-stock.Industrial;
+ const remainingCaustic=stock.AddCaustic-stock.Caustic;
+ const remainingCMC=stock.AddCMC-stock.CMC;
+ const remainingCDE=stock.AddCDE-stock.CDE;
+ const remainingColor=stock.AddColor-stock.Color;
+ const remainingPerfume=stock.AddPerfume-stock.Perfume;
+ const remainingMagadi=stock.AddMagadi-stock.Magadi;
+ const remainingChlorine=stock.AddChlorine-stock.Chlorine;
+ const remainingBioDigester=stock.AddBioDigester-stock.BioDigester;
+ const remainingDowny=stock.AddDowny-stock.Downy;
+ const remainingUndillutedKerol=stock.AddUndillutedKerol-stock.UndillutedKerol;
+ const remainingFineSalt=stock.AddFineSalt-stock.FineSalt;
+ const remainingGlycerine=stock.AddGlycerine-stock.Glycerine;
+ const remainingPearlizer=stock.AddPearlizer-stock.Pearlizer;
+ const remainingDOD=stock.AddDOD-stock.DOD;
+ const remainingNP9=stock.AddNP9-stock.NP9;
+ const remainingPINE=stock.AddPINE-stock.PINE;
+ const remainingToiletBalls=stock.AddToiletBalls-stock.ToiletBalls;
+ const remainingHCL=stock.AddHCL-stock.HCL;
 
   return (
     <div className="p-4">
@@ -133,6 +156,7 @@ const StockList = () => {
             <tr>
               <th className="px-4 py-2 border-b bg-gray-100 text-left">Chemical</th>
               <th className="px-4 py-2 border-b bg-gray-100 text-left">Quantity Used</th>
+              <th className="px-4 py-2 border-b bg-gray-100 text-left">Quantity Remaining</th>
               <th className="px-4 py-2 border-b bg-gray-100 text-left">Buying Price</th>
               <th className="px-4 py-2 border-b bg-gray-100 text-left">Selling Price</th>
               <th className="px-4 py-2 border-b bg-gray-100 text-left">Profit</th>
@@ -142,6 +166,7 @@ const StockList = () => {
             <tr className="border-b">
               <td className="px-4 py-2">Ungeral</td>
               <td className="px-4 py-2">{stock.Ungeral}</td>
+              <td className="px-4 py-2">{remainingUngeral}</td>
               <td className="px-4 py-2">{UngeralBuyingPrice}</td>
               <td className="px-4 py-2">{UngeralSellingPrice}</td>
               <td className="px-4 py-2">{UngeralProfit}</td>
@@ -149,6 +174,7 @@ const StockList = () => {
             <tr className="border-b bg-gray-50">
               <td className="px-4 py-2">Ufacid</td>
               <td className="px-4 py-2">{stock.Ufacid}</td>
+              <td className="px-4 py-2">{remainingUfacid}</td>
               <td className="px-4 py-2">{UfacidBuyingPrice}</td>
               <td className="px-4 py-2">{UfacidSellingPrice}</td>
               <td className="px-4 py-2">{UfacidProfit}</td>
@@ -156,6 +182,7 @@ const StockList = () => {
             <tr className="border-b">
               <td className="px-4 py-2">Industrial Salt</td>
               <td className="px-4 py-2">{stock.IndustrialSalt}</td>
+              <td className="px-4 py-2">{remainingIndustrailSalt}</td>
               <td className="px-4 py-2">{IndustrialSaltBuyingPrice}</td>
               <td className="px-4 py-2">{IndustrialSaltSellingPrice}</td>
               <td className="px-4 py-2">{IndustrialSaltProfit}</td>
@@ -163,6 +190,7 @@ const StockList = () => {
             <tr className="border-b bg-gray-50">
               <td className="px-4 py-2">Caustic</td>
               <td className="px-4 py-2">{stock.Caustic}</td>
+              <td className="px-4 py-2">{remainingCaustic}</td>
               <td className="px-4 py-2">{CausticBuyingPrice}</td>
               <td className="px-4 py-2">{CausticSellingPrice}</td>
               <td className="px-4 py-2">{CausticProfit}</td>
@@ -170,6 +198,7 @@ const StockList = () => {
             <tr className="border-b">
               <td className="px-4 py-2">CMC</td>
               <td className="px-4 py-2">{stock.CMC}</td>
+              <td className="px-4 py-2">{remainingCMC}</td>
               <td className="px-4 py-2">{CMCBuyingPrice}</td>
               <td className="px-4 py-2">{CMCSellingPrice}</td>
               <td className="px-4 py-2">{CMCProfit}</td>
@@ -177,6 +206,7 @@ const StockList = () => {
             <tr className="border-b bg-gray-50">
               <td className="px-4 py-2">CDE</td>
               <td className="px-4 py-2">{stock.CDE}</td>
+              <td className="px-4 py-2">{remainingCDE}</td>
               <td className="px-4 py-2">{CDEBuyingPrice}</td>
               <td className="px-4 py-2">{CDESellingPrice}</td>
               <td className="px-4 py-2">{CDEProfit}</td>
@@ -184,6 +214,7 @@ const StockList = () => {
             <tr className="border-b">
               <td className="px-4 py-2">Color</td>
               <td className="px-4 py-2">{stock.Color}</td>
+              <td className="px-4 py-2">{remainingColor}</td>
               <td className="px-4 py-2">{ColorBuyingPrice}</td>
               <td className="px-4 py-2">{ColorSellingPrice}</td>
               <td className="px-4 py-2">{ColorProfit}</td>
@@ -191,6 +222,7 @@ const StockList = () => {
             <tr className="border-b bg-gray-50">
               <td className="px-4 py-2">Perfume</td>
               <td className="px-4 py-2">{stock.Perfume}</td>
+              <td className="px-4 py-2">{remainingPerfume}</td>
               <td className="px-4 py-2">{PerfumeBuyingPrice}</td>
               <td className="px-4 py-2">{PerfumeSellingPrice}</td>
               <td className="px-4 py-2">{PerfumeProfit}</td>
@@ -198,6 +230,7 @@ const StockList = () => {
             <tr className="border-b">
               <td className="px-4 py-2">Magadi</td>
               <td className="px-4 py-2">{stock.Magadi}</td>
+              <td className="px-4 py-2">{remainingMagadi}</td>
               <td className="px-4 py-2">{MagadiBuyingPrice}</td>
               <td className="px-4 py-2">{MagadiSellingPrice}</td>
               <td className="px-4 py-2">{MagadiProfit}</td>
@@ -205,6 +238,7 @@ const StockList = () => {
             <tr className="border-b bg-gray-50">
               <td className="px-4 py-2">Chlorine</td>
               <td className="px-4 py-2">{stock.Chlorine}</td>
+              <td className="px-4 py-2">{remainingChlorine}</td>
               <td className="px-4 py-2">{ChlorineBuyingPrice}</td>
               <td className="px-4 py-2">{ChlorineSellingPrice}</td>
               <td className="px-4 py-2">{ChlorineProfit}</td>
@@ -212,6 +246,7 @@ const StockList = () => {
             <tr className="border-b">
               <td className="px-4 py-2">BioDigester</td>
               <td className="px-4 py-2">{stock.BioDigester}</td>
+              <td className="px-4 py-2">{remainingBioDigester}</td>
               <td className="px-4 py-2">{BioDigesterBuyingPrice}</td>
               <td className="px-4 py-2">{BioDigesterSellingPrice}</td>
               <td className="px-4 py-2">{BioDigesterProfit}</td>
@@ -219,6 +254,7 @@ const StockList = () => {
             <tr className="border-b bg-gray-50">
               <td className="px-4 py-2">Downy</td>
               <td className="px-4 py-2">{stock.Downy}</td>
+              <td className="px-4 py-2">{remainingColor}</td>
               <td className="px-4 py-2">{DownyBuyingPrice}</td>
               <td className="px-4 py-2">{DownySellingPrice}</td>
               <td className="px-4 py-2">{DownyProfit}</td>
@@ -226,6 +262,7 @@ const StockList = () => {
             <tr className="border-b">
               <td className="px-4 py-2">Undiluted Kerol</td>
               <td className="px-4 py-2">{stock.UndilutedKerrol}</td>
+              <td className="px-4 py-2">{remainingUndillutedKerol}</td>
               <td className="px-4 py-2">{KerolBuyingPrice}</td>
               <td className="px-4 py-2">{KerolSellingPrice}</td>
               <td className="px-4 py-2">{KerolProfit}</td>
@@ -233,6 +270,7 @@ const StockList = () => {
             <tr className="border-b bg-gray-50">
               <td className="px-4 py-2">Fine Salt</td>
               <td className="px-4 py-2">{stock.Finesalt}</td>
+              <td className="px-4 py-2">{remainingFineSalt}</td>
               <td className="px-4 py-2">{FineSaltBuyingPrice}</td>
               <td className="px-4 py-2">{FineSaltSellingPrice}</td>
               <td className="px-4 py-2">{FineSaltProfit}</td>
@@ -240,6 +278,7 @@ const StockList = () => {
             <tr className="border-b">
               <td className="px-4 py-2">Glycerine</td>
               <td className="px-4 py-2">{stock.Glycerine}</td>
+              <td className="px-4 py-2">{remainingGlycerine}</td>
               <td className="px-4 py-2">{GlycerineBuyingPrice}</td>
               <td className="px-4 py-2">{GlycerineSellingPrice}</td>
               <td className="px-4 py-2">{GlycerineProfit}</td>
@@ -247,6 +286,7 @@ const StockList = () => {
             <tr className="border-b bg-gray-50">
               <td className="px-4 py-2">Pearlizer</td>
               <td className="px-4 py-2">{stock.Pearlizer}</td>
+              <td className="px-4 py-2">{remainingPearlizer}</td>
               <td className="px-4 py-2">{PearlizerBuyingPrice}</td>
               <td className="px-4 py-2">{PearlizerSellingPrice}</td>
               <td className="px-4 py-2">{PearlizerProfit}</td>
@@ -254,6 +294,7 @@ const StockList = () => {
             <tr className="border-b">
               <td className="px-4 py-2">DOD</td>
               <td className="px-4 py-2">{stock.DOD}</td>
+              <td className="px-4 py-2">{remainingDOD}</td>
               <td className="px-4 py-2">{DODBuyingPrice}</td>
               <td className="px-4 py-2">{DODSellingPrice}</td>
               <td className="px-4 py-2">{DODProfit}</td>
@@ -261,6 +302,7 @@ const StockList = () => {
             <tr className="border-b bg-gray-50">
               <td className="px-4 py-2">NP9</td>
               <td className="px-4 py-2">{stock.NP9}</td>
+              <td className="px-4 py-2">{remainingNP9}</td>
               <td className="px-4 py-2">{NP9BuyingPrice}</td>
               <td className="px-4 py-2">{NP9SellingPrice}</td>
               <td className="px-4 py-2">{NP9Profit}</td>
@@ -268,6 +310,7 @@ const StockList = () => {
             <tr className="border-b">
               <td className="px-4 py-2">PINE</td>
               <td className="px-4 py-2">{stock.PINE}</td>
+              <td className="px-4 py-2">{remainingPINE}</td>
               <td className="px-4 py-2">{PINEBuyingPrice}</td>
               <td className="px-4 py-2">{PINESellingPrice}</td>
               <td className="px-4 py-2">{PINEProfit}</td>
@@ -275,6 +318,7 @@ const StockList = () => {
             <tr className="border-b bg-gray-50">
               <td className="px-4 py-2">Toilet Balls</td>
               <td className="px-4 py-2">{stock.ToiletBalls}</td>
+              <td className="px-4 py-2">{remainingToiletBalls}</td>
               <td className="px-4 py-2">{ToiletBallsBuyingPrice}</td>
               <td className="px-4 py-2">{ToiletBallsSellingPrice}</td>
               <td className="px-4 py-2">{ToiletBallsProfit}</td>
@@ -282,6 +326,7 @@ const StockList = () => {
             <tr className="border-b">
               <td className="px-4 py-2">HCL</td>
               <td className="px-4 py-2">{stock.HCL}</td>
+              <td className="px-4 py-2">{remainingHCL}</td>
               <td className="px-4 py-2">{HCLBuyingPrice}</td>
               <td className="px-4 py-2">{HCLSellingPrice}</td>
               <td className="px-4 py-2">{HCLProfit}</td>

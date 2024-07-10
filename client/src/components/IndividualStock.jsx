@@ -3,13 +3,14 @@ import React, { useState } from 'react';
 import { addIndividualStock } from '../services/stockService.js';
 import LoadingSpinner from './LoadingSpinner'; // Import the LoadingSpinner component
 
-const chemicalOptions = [
-  'CDE', 'CMC', 'Caustic', 'Chlorine', 'Color', 'DOD', 'Finesalt', 
-  'Glycerine', 'HCL', 'IndustrialSalt', 'Magadi', 'NP9', 'PINE', 
-  'Pearlizer', 'Pearls', 'Perfume', 'Ufacid', 'UndilutedKerrol', 'Ungeral','Tolietballs','Downy'
-];
+
 
 const IndividualStockUpdateButton = () => {
+  const chemicalOptions = [
+    'CDE', 'CMC', 'Caustic', 'Chlorine', 'Color', 'DOD', 'Finesalt', 
+    'Glycerine', 'HCL', 'IndustrialSalt', 'Magadi', 'NP9', 'PINE', 
+    'Pearlizer', 'Pearls', 'Perfume', 'Ufacid', 'UndilutedKerrol', 'Ungeral','Tolietballs','Downy'
+  ];
   const [loading, setLoading] = useState(false); // State to manage loading
   const [chemical, setChemical] = useState('');
   const [quantity, setQuantity] = useState('');

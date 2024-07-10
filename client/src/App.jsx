@@ -8,6 +8,7 @@ import IndividualStockUpdateButton from './components/IndividualStock.jsx';
 import ProductUpdate from './readyMade/update.jsx';
 import AddReadyMade from './readyMade/addproduct.jsx';
 import ReadyMadeTable from './readyMade/readymadetable.jsx';
+import AddChemicals from './components/AddChemicals.jsx';
 function App() {
   return (
     <BrowserRouter>
@@ -20,6 +21,7 @@ function App() {
         <Route path='/SellreadyMade' element={<ProductUpdate/>}/>
         <Route path='/AddreadyMade' element={<AddReadyMade/>}/>
         <Route path='/readymadetable' element={<ReadyMadeTable/>}/>
+        <Route path='/Addchemicals' element={<AddChemicals/>}/>
       </Routes>
     </BrowserRouter>
   );

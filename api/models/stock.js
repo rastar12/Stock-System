@@ -22,7 +22,29 @@ const stockSchema = new mongoose.Schema({
   PINE: { type: Number, default: 0 },
   Downy: { type: Number, default: 0 },
   BioDigester:{type: Number,default: 0},
-  ToiletBalls: { type: Number, default: 0 }
+  ToiletBalls: { type: Number, default: 0 },
+  // added stock
+  AddUngeral: { type: Number, default: 0 },
+  AddUfacid: { type: Number, default: 0 },
+  AddIndustrialSalt: { type: Number, default: 0 },
+  AddCaustic: { type: Number, default: 0 },
+  AddCMC: { type: Number, default: 0 },
+  AddCDE: { type: Number, default: 0 },
+  AddColor: { type: Number, default: 0 },
+  AddPerfume: { type: Number, default: 0 },
+  AddMagadi: { type: Number, default: 0 },
+  AddChlorine: { type: Number, default: 0 },
+  AddUndilutedKerrol: { type: Number, default: 0 },
+  AddFinesalt: { type: Number, default: 0 },
+  AddGlycerine: { type: Number, default: 0 },
+  AddPearlizer: { type: Number, default: 0 },
+  AddHCL: { type: Number, default: 0 },
+  AddDOD: { type: Number, default: 0 },
+  AddNP9: { type: Number, default: 0 },
+  AddPINE: { type: Number, default: 0 },
+  AddDowny: { type: Number, default: 0 },
+  AddBioDigester:{type: Number,default: 0},
+  AddToiletBalls: { type: Number, default: 0 }
 }, { timestamps: true });
 
 const Stock = mongoose.model('Stock', stockSchema);

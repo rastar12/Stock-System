@@ -125,9 +125,9 @@ const StockList = () => {
   const TotalProfits = TotalSellingPrice - TotalBuyingPrice;
 // to handle the remainin stock
 
- const remainingUngeral =stock.AddUngeral-stock.ungeral;
+ const remainingUngeral =stock.AddUngeral-stock.Ungeral;
  const remainingUfacid=stock.AddUngeral-stock.Ufacid;
- const remainingIndustrailSalt=stock.AddIndustrialSalt-stock.Industrial;
+ const remainingIndustrailSalt=stock.AddIndustrialSalt-stock.IndustrialSalt;
  const remainingCaustic=stock.AddCaustic-stock.Caustic;
  const remainingCMC=stock.AddCMC-stock.CMC;
  const remainingCDE=stock.AddCDE-stock.CDE;

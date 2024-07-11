@@ -137,8 +137,8 @@ const StockList = () => {
  const remainingChlorine=stock.AddChlorine-stock.Chlorine;
  const remainingBioDigester=stock.AddBioDigester-stock.BioDigester;
  const remainingDowny=stock.AddDowny-stock.Downy;
- const remainingUndillutedKerol=stock.AddUndillutedKerol-stock.UndillutedKerol;
- const remainingFineSalt=stock.AddFineSalt-stock.FineSalt;
+ const remainingUndillutedKerol=stock.AddUndillutedKerrol-stock.UndillutedKerrol;
+ const remainingFineSalt=stock.AddFinesalt-stock.Finesalt;
  const remainingGlycerine=stock.AddGlycerine-stock.Glycerine;
  const remainingPearlizer=stock.AddPearlizer-stock.Pearlizer;
  const remainingDOD=stock.AddDOD-stock.DOD;
@@ -254,7 +254,7 @@ const StockList = () => {
             <tr className="border-b bg-gray-50">
               <td className="px-4 py-2">Downy</td>
               <td className="px-4 py-2">{stock.Downy}</td>
-              <td className="px-4 py-2">{remainingColor}</td>
+              <td className="px-4 py-2">{remainingDowny}</td>
               <td className="px-4 py-2">{DownyBuyingPrice}</td>
               <td className="px-4 py-2">{DownySellingPrice}</td>
               <td className="px-4 py-2">{DownyProfit}</td>

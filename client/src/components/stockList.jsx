@@ -137,7 +137,7 @@ const StockList = () => {
  const remainingChlorine=stock.AddChlorine-stock.Chlorine;
  const remainingBioDigester=stock.AddBioDigester-stock.BioDigester;
  const remainingDowny=stock.AddDowny-stock.Downy;
- const remainingUndillutedKerol=stock.AddUndillutedKerrol-stock.UndillutedKerrol;
+ const remainingUndillutedKerol=stock.AddUndilutedKerrol-stock.UndilutedKerrol;
  const remainingFineSalt=stock.AddFinesalt-stock.Finesalt;
  const remainingGlycerine=stock.AddGlycerine-stock.Glycerine;
  const remainingPearlizer=stock.AddPearlizer-stock.Pearlizer;

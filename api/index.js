@@ -35,10 +35,10 @@ app.use('/api/products',AddReadyMadeProductsRoutes);
 app.use('/api/payment',PaymentRoutes);
 app.use('/api/withdraw',WithdrawRoutes);
 
-{/**
+
   app.use(express.static(path.join(__dirname,"/client/dist")))
 
 app.get('*', (req,res)=>{
   res.sendFile(path.join(__dirname,'client','dist','index.html'))
 })
-   */}
+   

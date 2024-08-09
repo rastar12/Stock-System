@@ -122,7 +122,7 @@ const CombinedStockAndReadyMade = () => {
     { name: 'Color', buyingPrice: 300, sellingPrice: 2000 },
     { name: 'Perfume', buyingPrice: 600, sellingPrice: 2000 },
     { name: 'Magadi', buyingPrice: 60, sellingPrice: 500 },
-    { name: 'Chlorine', buyingPrice: 430, sellingPrice: 480 },
+    { name: 'Chlorine', buyingPrice: 340, sellingPrice: 480 },
     { name: 'BioDigester', buyingPrice: 650, sellingPrice: 1100 },
     { name: 'Downy', buyingPrice: 550, sellingPrice: 650 },
     { name: 'UndilutedKerrol', buyingPrice: 1000, sellingPrice: 1400 },

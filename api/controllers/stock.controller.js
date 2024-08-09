@@ -86,7 +86,7 @@ export const UpdateStock= async (req, res) => {
       }
   
       selectedProduct.forEach(item => {
-        stock[item.name] += item.quantity;
+        stock[item.name] += item.quantity ;
       });
   
       await stock.save();

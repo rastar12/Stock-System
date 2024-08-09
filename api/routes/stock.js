@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.post('/UpdateStocks',UpdateStock)
 router.get('/ShowStock',ShowStock)
-router.post('/update-individual',Individual)
+router.post('/update-individual',Individual);
 
 
 

@@ -7,7 +7,8 @@ import IndividualRoutes from './routes/stock.js'
 import path from 'path'
 import ShowReadyProductsRoutes from './routes/products.js'
 import AddReadyMadeProductsRoutes from './routes/products.js'
-
+import PaymentRoutes from "./routes/payment.route.js"
+import WithdrawRoutes from "./routes/withdraw.routes.js"
 
 mongoose.connect("mongodb+srv://eugenechanzu:12345@cluster0.u4cht0m.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 .then(()=>{
@@ -31,9 +32,13 @@ app.use('/api/stock',IndividualRoutes)
 app.use('/api/products',ShowReadyProductsRoutes);
 app.use('/api/products',AddReadyMadeProductsRoutes);
 
+app.use('/api/payment',PaymentRoutes);
+app.use('/api/withdraw',WithdrawRoutes);
 
-app.use(express.static(path.join(__dirname,"/client/dist")))
+{/**
+  app.use(express.static(path.join(__dirname,"/client/dist")))
 
 app.get('*', (req,res)=>{
   res.sendFile(path.join(__dirname,'client','dist','index.html'))
 })
+   */}

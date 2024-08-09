@@ -2,14 +2,18 @@ import React, { useState } from 'react';
 import { addStock } from '../services/stockService.js';
 
 const StockUpdateButton = ({ productType, label }) => {
+  const [loading,setLoading]=useState(false);
   const handleClick = async () => {
    
     try {
+      setLoading(true)
       const response = await addStock(productType);
       console.log('Stock updated:', response);
       alert('Stock updated successfully!');
+      setLoading(false);
     } catch (error) {
       alert('Failed to update stock');
+      setLoading(false)
     }
   };
 
@@ -18,7 +22,8 @@ const StockUpdateButton = ({ productType, label }) => {
       onClick={handleClick}
       className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 shadow-lg transform transition-transform hover:scale-105"
     >
-      {label}
+      {loading ? "loading..." : `${label}`}
+    
     </button>
   );
 };

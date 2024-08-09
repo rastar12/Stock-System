@@ -35,7 +35,6 @@ export const getStock = async () => {
   }
 };
 
-// src/services/stockService.js
 
 
 
@@ -50,7 +49,7 @@ export const addIndividualStock = async (chemical, quantity) => {
   });
   return response.json();
 };
-// function to update sales 
+
 
 // function to add ready made 
 export const ReadyMadeStock = async (product, quantity) => {

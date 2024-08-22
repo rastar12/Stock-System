@@ -155,10 +155,11 @@ export default function Mpesa() {
           </div>
 
           <button 
+            disabled={loading}
             type='submit' 
             className='self-center rounded-lg font-bold bg-green-700 text-white p-3'
           >
-            Record
+          {loading ? "recording..." : "record"}
           </button>
         </form>    
       </div>
@@ -189,10 +190,11 @@ export default function Mpesa() {
           </div>
 
           <button 
+          disabled={loading}
             type='submit' 
             className='justify-center rounded-lg font-bold bg-green-700 text-white p-3'
           >
-            Record
+            {loading ? "recording..." : "record"}
           </button>
         </form>    
       </div>

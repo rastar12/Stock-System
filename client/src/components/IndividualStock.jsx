@@ -59,6 +59,7 @@ const IndividualStockUpdateButton = () => {
         Quantity
       </label>
       <input
+     
         id="quantity"
         type="number"
         value={quantity}
@@ -70,6 +71,7 @@ const IndividualStockUpdateButton = () => {
         <LoadingSpinner /> // Display the loading spinner when loading
       ) : (
         <button
+        disabled={loading}
           onClick={handleClick}
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 shadow-lg transform transition-transform hover:scale-105"
         >

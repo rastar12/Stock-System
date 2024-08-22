@@ -42,6 +42,11 @@ export const UpdateStock= async (req, res) => {
         { name: 'Caustic', quantity: 0.15 },
         { name: 'Chlorine', quantity: 0.25 }
       ],
+      "5litre-fabric-stain-remover": [
+        { name: 'Magadi', quantity: 0.25 },
+        { name: 'Caustic', quantity: 0.075 },
+        { name: 'Chlorine', quantity: 0.125 }
+      ],
       "10litre-hand-wash": [
         { name: 'Ungeral', quantity: 0.75 },
         { name: 'Finesalt', quantity: 0.5 },

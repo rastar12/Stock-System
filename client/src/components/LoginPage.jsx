@@ -33,7 +33,7 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-purple-300">
+    <div className="flex items-center justify-center min-h-screen bg-slate-300">
       {loginSuccess ? (
         <div>
           <Home />

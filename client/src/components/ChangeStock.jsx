@@ -16,6 +16,7 @@ const UpdateStock = () => {
         <StockUpdateButton productType="20litre-detergent" label="Add 20 Litre Detergent" />
         <StockUpdateButton productType="10litre-detergent" label="Add 10 Litre Detergent" />
         <StockUpdateButton productType="10litre-fabric-stain-remover" label="Add 10 Litre Fabric Stain Remover" />
+        <StockUpdateButton productType="5litre-fabric-stain-remover" label="Add 5 Litre Fabric Stain Remover" />
         <StockUpdateButton productType="10litre-hand-wash" label="Add 10 Litre Hand Wash" />
         <StockUpdateButton productType="10litre-shampoo" label="Add 10 Litre Shampoo" />
         <StockUpdateButton productType="10litre-liquid-antiseptic" label="Add 10 Litre Liquid Antiseptic" />

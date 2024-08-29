@@ -75,6 +75,12 @@ export const UpdateStock= async (req, res) => {
         { name: 'HCL', quantity: 2 },
         { name: 'Color', quantity: 0.001 },
         { name: 'Perfume', quantity: 0.015 }
+      ],
+      "5litres-Downy":[
+        {name:'Downy',quantity:0.5}
+      ],
+      "10litres-Downy":[
+        {name:'Downy',quantity:1}
       ]
     };
   

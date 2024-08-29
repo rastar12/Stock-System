@@ -21,6 +21,9 @@ const UpdateStock = () => {
         <StockUpdateButton productType="10litre-shampoo" label="Add 10 Litre Shampoo" />
         <StockUpdateButton productType="10litre-liquid-antiseptic" label="Add 10 Litre Liquid Antiseptic" />
         <StockUpdateButton productType="10litre-toilet-cleaner" label="Add 10 Litre Toilet Cleaner" />
+        <StockUpdateButton productType="10litre-toilet-cleaner" label="Add 10 Litre Toilet Cleaner" />
+        <StockUpdateButton productType="5litres-Downy" label="Add 5litres-Downy" />
+        <StockUpdateButton productType="10litres-Downy" label="Add 10litres-Downy" />
       </div>
     </div>
     </div>

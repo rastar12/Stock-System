@@ -13,10 +13,12 @@ import AddStockHome from './components/AddStockHome.jsx';
 import ViewSales from './components/ViewSales.jsx';
 import Mpesa from './components/Mpesa.jsx';
 import AccountStatus from './components/AccountStatus.jsx';
+import Header from './components/Header.jsx';
 
 function App() {
   return (
     <BrowserRouter>
+
       <Routes>
         <Route path='/viewSales' element={<ViewSales/>}/>
         <Route path='/sellStockHome' element={<SellStockHome/>}/>

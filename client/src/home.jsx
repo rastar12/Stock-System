@@ -9,6 +9,7 @@ export default function Home() {
 
   return (
     <div className='w-full h-full p-3 '>
+      
       <img src={logo} className='w-15 h-10 self-center'/>
       <h1 className='text-xl font-bold text-center uppercase mb-3'> Mbale Detergents stock inventory system</h1>
    

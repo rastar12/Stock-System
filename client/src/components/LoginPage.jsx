@@ -39,14 +39,14 @@ export default function LoginPage() {
           <Home />
         </div>
       ) : (
-        <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-md">
-          <h2 className="text-2xl font-semibold text-center mb-6">Login</h2>
+        <div className="w-full max-w-md p-8  rounded-lg shadow-md border border-gray-900 ">
+          <h2 className="text-2xl font-semibold  mb-6 uppercase text-gray-800 underline">Login</h2>
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
               <input
                 type="text"
                 placeholder="Enter Username"
-                className="w-full px-4 py-2 text-lg border rounded-md focus:outline-none focus:border-blue-500"
+                className="w-full px-4 py-2 text-lg border-b bg-transparent border-b-gray-800 rounded-md focus:outline-none focus:border-blue-500"
                 required
                 value={userName}
                 onChange={handleEmailChange}
@@ -56,7 +56,8 @@ export default function LoginPage() {
               <input
                 type="password"
                 placeholder="Enter Password"
-                className="w-full px-4 py-2 text-lg border rounded-md focus:outline-none focus:border-blue-500"
+                className="w-full px-4 py-2 text-lg border-b bg-transparent border-b-gray-800 rounded-md focus:outline-none focus:border-blue-500"
+
                 required
                 value={password}
                 onChange={handlePasswordChange}
@@ -65,7 +66,7 @@ export default function LoginPage() {
             <div>
               <button
                 type="submit"
-                className={`w-full py-2 text-lg font-semibold text-white rounded-md ${loading ? 'bg-blue-300' : 'bg-blue-500 hover:bg-blue-600'}`}
+                className={`w-full py-2 text-lg font-semibold text-white rounded-md ${loading ? 'bg-gray-500' : 'bg-gray-800 hover:bg-gray-600'}`}
                 disabled={loading}
               >
                 {loading ? 'Logging in...' : 'Login'}

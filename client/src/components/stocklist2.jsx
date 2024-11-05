@@ -3,7 +3,7 @@ import LoadingSpinner from './LoadingSpinner';
 import { Link } from 'react-router-dom';
 
 const CHEMICALS = [
-  { name: 'Ungeral', buyingPrice: 185, sellingPrice: 300 },
+  { name: 'Ungeral', buyingPrice:200, sellingPrice: 340 },
   { name: 'Ufacid', buyingPrice: 310, sellingPrice: 400 },
   { name: 'IndustrialSalt', buyingPrice: 19, sellingPrice: 40 },
   { name: 'Caustic', buyingPrice: 152, sellingPrice: 300 },

@@ -1,6 +1,5 @@
 import mongoose from 'mongoose';
 
-
 const stockSchema = new mongoose.Schema({
   Ungeral: { type: Number, default: 0 },
   Ufacid: { type: Number, default: 0 },
@@ -34,7 +33,8 @@ const stockSchema = new mongoose.Schema({
   AddPerfume: { type: Number, default: 0 },
   AddMagadi: { type: Number, default: 0 },
   AddChlorine: { type: Number, default: 0 },
-  AddUndilutedKerrol: { type: Number, default: 0 },
+
+AddUndilutedKerrol: { type: Number, default: 0 },
   AddFinesalt: { type: Number, default: 0 },
   AddGlycerine: { type: Number, default: 0 },
   AddPearlizer: { type: Number, default: 0 },
@@ -44,7 +44,9 @@ const stockSchema = new mongoose.Schema({
   AddPINE: { type: Number, default: 0 },
   AddDowny: { type: Number, default: 0 },
   AddBioDigester:{type: Number,default: 0},
-  AddToiletBalls: { type: Number, default: 0 }
+  AddToiletBalls: { type: Number, default: 0 },
+
+  createdAt:{type:new Date()}
 }, { timestamps: true });
 
 const Stock = mongoose.model('Stock', stockSchema);

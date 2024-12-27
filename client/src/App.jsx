@@ -14,6 +14,7 @@ import ViewSales from './components/ViewSales.jsx';
 import Mpesa from './components/Mpesa.jsx';
 import AccountStatus from './components/AccountStatus.jsx';
 import Header from './components/Header.jsx';
+import ChangePrice from './components/changePrice.jsx';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
         <Route path='/Addchemicals' element={<AddChemicals/>}/>
         <Route path='/Mpesa' element={<Mpesa/>}/>
         <Route path='/account-status' element={<AccountStatus/>}/>
+        <Route path="/changePrice" element={<ChangePrice/>}/>
         
       </Routes>
     </BrowserRouter>

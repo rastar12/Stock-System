@@ -1,6 +1,17 @@
 import Stock from '../models/stock.js';
 
+const getObjectId = async () => {
+  try {
+    const objects = await Stock.find();
+    const currentTime = new Date();
+   
 
+  } catch (error){
+
+  } 
+  }
+
+ getObjectId();
 // to get the stock
 export const ShowStock = async (req, res) => {
   try {
@@ -112,7 +123,7 @@ export const Individual= async (req, res) => {
   const { chemical, quantity } = req.body;
 
   try {
-    const stock = await Stock.findById("6667fd54d142be69f7a5660e"); 
+    const stock = await Stock.findById ("6667fd54d142be69f7a5660e"); 
 
     if (stock && stock[chemical] !== undefined) {
       stock[chemical] += parseFloat(quantity);

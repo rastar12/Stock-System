@@ -12,12 +12,18 @@ export default function Home() {
       
       <img src={logo} className='w-15 h-10 self-center'/>
       <h1 className='text-xl font-bold text-center uppercase mb-3'> Mbale Detergents stock inventory system</h1>
-   
+     
       <Link to={'/addStockHome'}>
       <div className='p-3 rounded-lg bg-green-700 items-center text-white'>
         
         Add stock</div>
       </Link>
+
+      <Link to={'/changePrice'}>
+      <div className='p-3 rounded-lg bg-slate-600 text-white font-bold mt-3'>
+        Change price 
+        </div>
+        </Link>
 
        <Link to={'/sellStockHome'}>
        <div className='p-3 bg-blue-700 rounded-lg text-white mt-3'>

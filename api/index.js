@@ -9,6 +9,7 @@ import ShowReadyProductsRoutes from './routes/products.js'
 import AddReadyMadeProductsRoutes from './routes/products.js'
 import PaymentRoutes from "./routes/payment.route.js"
 import WithdrawRoutes from "./routes/withdraw.routes.js"
+import PricesRoutes from "./routes/priceChange.routes.js"
 
 mongoose.connect("mongodb+srv://eugenechanzu:12345@cluster0.u4cht0m.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 .then(()=>{
@@ -34,6 +35,8 @@ app.use('/api/products',AddReadyMadeProductsRoutes);
 
 app.use('/api/payment',PaymentRoutes);
 app.use('/api/withdraw',WithdrawRoutes);
+
+app.use('/api/prices',PricesRoutes);
 
 
   app.use(express.static(path.join(__dirname,"/client/dist")))

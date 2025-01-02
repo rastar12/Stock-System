@@ -1,11 +1,110 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import LoadingSpinner from '../components/LoadingSpinner';
 
 const CombinedStockAndReadyMade = () => {
   const [stock, setStock] = useState(null);
   const [readyProducts, setReadyProducts] = useState(null);
   const [error, setError] = useState(null);
+  const [CHEMICALS, setPrices] = useState({});
+  const [remainingChemical,setRemainingChemical]=useState(null);
+  const [loading,setLoading]=useState(false);
+  const formRef = useRef();
 
+  const handlePrint = () => {
+    window.print();
+  };
+
+  //console.log("before submiting ",remainingChemical);
+  console.log(stock);
+  useEffect(() => {
+    if (stock) {
+      const calculatedRemainingChemical = 
+        {
+       AddUngeral: stock.AddUngeral - stock.Ungeral ,
+       AddUfacid: stock.AddUfacid - stock.Ufacid ,
+       AddIndustrialSalt: stock.AddIndustrialSalt - stock.IndustrialSalt,
+         AddCaustic: stock.AddCaustic - stock.Caustic ,
+         AddCMC: stock.AddCMC - stock.CMC ,
+         AddCDE: stock.AddCDE - stock.CDE ,
+         AddColor: stock.AddColor - stock.Color ,
+         AddPerfume: stock.AddPerfume - stock.Perfume ,
+         AddMagadi: stock.AddMagadi - stock.Magadi ,
+         AddChlorine: stock.AddChlorine - stock.Chlorine ,
+         AddUndilutedKerrol: stock.AddUndilutedKerrol - stock.UndilutedKerrol ,
+         AddFineSalt: stock.AddFineSalt - stock.FineSalt ,
+         AddGlycerine: stock.AddGlycerine - stock.Glycerine ,
+         AddPearlizer: stock.AddPearlizer - stock.Pearlizer ,
+         AddHCL: stock.AddHCL - stock.HCL ,
+         AddDOD: stock.AddDOD - stock.DOD ,
+         AddNP9: stock.AddNP9 - stock.NP9 ,
+         AddPINE: stock.AddPINE - stock.PINE ,
+         AddDowny: stock.AddDowny - stock.Downy ,
+         AddBioDigester: stock.AddBioDigester - stock.BioDigester ,
+         AddToiletBalls: stock.AddToiletBalls - stock.ToiletBalls ,
+         Ungeral:0,
+        Ufacid: 0,
+        IndustrialSalt:0,
+        Caustic: 0,
+        CMC: 0,
+        CDE:0,
+        Color:0,
+        Perfume: 0,
+        Magadi:0,
+        Chlorine:0,
+        FineSalt: 0,
+        Glycerine: 0,
+        Pearlizer: 0,
+        HCL:0,
+        DOD: 0,
+        NP9: 0,
+        PINE: 0,
+        Downy: 0,
+        BioDigester: 0,
+        ToiletBalls:0,
+        Finesalt:0,
+        UndilutedKerrol:0,
+        }
+      ;
+      setRemainingChemical(calculatedRemainingChemical);
+    }
+  }, [stock]);
+
+  const handleReset = async () => {
+    try {
+      console.log("I reached here");
+      setLoading(true); 
+  
+     
+      const res = await fetch(`/api/stock/dailyUpdate`, { 
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(remainingChemical), 
+      });
+  
+      if (!res.ok) {
+        throw new Error("Failed to reset data");
+      }
+  
+      const data = await res.json();
+      console.log("Backend data:", data);
+  
+      alert("Table reset successfully updated");
+  
+      setLoading(false); 
+    } catch (error) {
+      setLoading(false); 
+      console.error(error.message);
+      alert("An error occurred. Please try again.");
+    }
+  };
+  
+  
+
+
+  console.log()
+  
   useEffect(() => {
     const fetchStock = async () => {
       try {
@@ -34,12 +133,19 @@ const CombinedStockAndReadyMade = () => {
         setError(error.message);
       }
     };
+    const fetchPrices=()=>{
+      fetch('/api/prices/ShowPrices')
+      .then(res=>res.json())
+      .then(data=>setPrices(data))
+      .catch(err=>console.log(err))
+     }
 
+     fetchPrices();
     fetchStock();
     fetchReadyProducts();
   }, []);
 
-  if (!stock || !readyProducts) {
+  if (!stock || !readyProducts ) {
     return <LoadingSpinner />;
   }
 
@@ -111,31 +217,8 @@ const CombinedStockAndReadyMade = () => {
   const TotalBuyingPrice = ReadyMadeBuyingPrice + chemicalBuyingPrice;
   const TotalProfit = TotalSales - TotalBuyingPrice;
 
-  // StockList calculations
-  const CHEMICALS = [
-    { name: 'Ungeral', buyingPrice: 300, sellingPrice: 345 },
-    { name: 'Ufacid', buyingPrice: 310, sellingPrice: 400 },
-    { name: 'IndustrialSalt', buyingPrice: 19, sellingPrice: 40 },
-    { name: 'Caustic', buyingPrice: 152, sellingPrice: 300 },
-    { name: 'CMC', buyingPrice: 146, sellingPrice: 1000 },
-    { name: 'CDE', buyingPrice: 400, sellingPrice: 1500 },
-    { name: 'Color', buyingPrice: 300, sellingPrice: 2000 },
-    { name: 'Perfume', buyingPrice: 600, sellingPrice: 2000 },
-    { name: 'Magadi', buyingPrice: 60, sellingPrice: 500 },
-    { name: 'Chlorine', buyingPrice: 340, sellingPrice: 480 },
-    { name: 'BioDigester', buyingPrice: 650, sellingPrice: 1100 },
-    { name: 'Downy', buyingPrice: 550, sellingPrice: 650 },
-    { name: 'UndilutedKerrol', buyingPrice: 1000, sellingPrice: 1400 },
-    { name: 'Finesalt', buyingPrice: 24, sellingPrice: 60 },
-    { name: 'Glycerine', buyingPrice: 900, sellingPrice: 2000 },
-    { name: 'Pearlizer', buyingPrice: 900, sellingPrice: 2000 },
-    { name: 'DOD', buyingPrice: 700, sellingPrice: 1000 },
-    { name: 'NP9', buyingPrice: 500, sellingPrice: 780 },
-    { name: 'PINE', buyingPrice: 1400, sellingPrice: 2000 },
-    { name: 'ToiletBalls', buyingPrice: 130, sellingPrice: 250 },
-    { name: 'HCL', buyingPrice: 136, sellingPrice: 250 },
-  ];
-  
+
+
   const calculatePrices = (quantity, buyingPrice, sellingPrice) => {
     const buyingTotal = quantity * buyingPrice;
     const sellingTotal = quantity * sellingPrice;
@@ -145,9 +228,9 @@ const CombinedStockAndReadyMade = () => {
   let totalBuyingPrice = 0;
   let totalSellingPrice = 0;
 
-  CHEMICALS.forEach(({ name, buyingPrice, sellingPrice }) => {
-    const usedQuantity = stock[name] || 0;
-    const addedQuantity = stock[`Add${name}`] || 0;
+  CHEMICALS.forEach(({ Name, buyingPrice, sellingPrice }) => {
+    const usedQuantity = stock[Name] || 0;
+    const addedQuantity = stock[`Add${Name}`] || 0;
     const { buyingTotal, sellingTotal, profit } = calculatePrices(usedQuantity, buyingPrice, sellingPrice);
 
     totalBuyingPrice += buyingTotal;
@@ -160,7 +243,22 @@ const CombinedStockAndReadyMade = () => {
 
   return (
     <div className="p-4">
+         <div className="flex justify-end gap-4 mb-4">
+        <button
+          className="text-white bg-green-500 p-2 rounded"
+          onClick={handlePrint}
+        >
+          Print Data
+        </button>
+        <button
+          className="text-white bg-red-500 p-2 rounded"
+          onClick={handleReset}
+        >
+          Reset Data
+        </button>
+      </div>
       {/* ReadyMadeTable section */}
+      <div ref={formRef}>
       <h2 className="text-2xl font-semibold mb-4">Ready Made Stock</h2>
       <div className="overflow-x-auto">
         <table className="min-w-full bg-white border border-gray-200">
@@ -212,14 +310,14 @@ const CombinedStockAndReadyMade = () => {
             </tr>
           </thead>
           <tbody>
-            {CHEMICALS.map(({ name, buyingPrice, sellingPrice }, index) => {
-              const usedQuantity = stock[name] || 0;
-              const addedQuantity = stock[`Add${name}`] || 0;
+            {CHEMICALS.map(({ Name, buyingPrice, sellingPrice }, index) => {
+              const usedQuantity = stock[Name] || 0;
+              const addedQuantity = stock[`Add${Name}`] || 0;
               const { buyingTotal, sellingTotal, profit } = calculatePrices(usedQuantity, buyingPrice, sellingPrice);
 
               return (
                 <tr key={index} className={`border-b ${index % 2 ? 'bg-gray-50' : ''}`}>
-                  <td className="px-4 py-2">{name}</td>
+                  <td className="px-4 py-2">{Name}</td>
                   <td className="px-4 py-2">{usedQuantity}</td>
                   <td className="px-4 py-2">{addedQuantity - usedQuantity}</td>
                   <td className="px-4 py-2">{buyingTotal}</td>
@@ -278,6 +376,8 @@ const CombinedStockAndReadyMade = () => {
           </tbody>
         </table>
       </div>
+      </div>
+
     </div>
   );
 };

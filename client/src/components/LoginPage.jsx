@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Home from './homePage';
 
+
 export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [userName, setUserName] = useState("");
@@ -9,18 +10,24 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+
   function handleSubmit(event) {
     event.preventDefault();
     setLoading(true);
 
     setTimeout(() => {
-      if (userName === "Mbale" && password === "Mbale2024") {
+      if (userName === "User" && password === "Mbale2024") {
         setLoginSuccess(true);
         navigate('/Home'); 
-      } else {
+      } else if(userName==="Admin" && password=== "Mbale2025"){
+       navigate('/AdminDashboard');
+  
+      }
+      else{
         alert("Incorrect login details");
         setLoading(false);
       }
+
     }, 1000); 
   }
 

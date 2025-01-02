@@ -15,6 +15,7 @@ import Mpesa from './components/Mpesa.jsx';
 import AccountStatus from './components/AccountStatus.jsx';
 import Header from './components/Header.jsx';
 import ChangePrice from './components/changePrice.jsx';
+import AdminDashboard from './components/AdminDashboard.jsx';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
         <Route path='/Mpesa' element={<Mpesa/>}/>
         <Route path='/account-status' element={<AccountStatus/>}/>
         <Route path="/changePrice" element={<ChangePrice/>}/>
+        <Route path='/AdminDashboard' element={<AdminDashboard/>}/>
         
       </Routes>
     </BrowserRouter>

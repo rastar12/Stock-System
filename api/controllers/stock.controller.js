@@ -1,5 +1,7 @@
 import Stock from '../models/stock.js';
 
+/*
+
 const getObjectId = async () => {
   try {
     const objects = await Stock.find();
@@ -12,6 +14,7 @@ const getObjectId = async () => {
   }
 
  getObjectId();
+ */
 // to get the stock
 export const ShowStock = async (req, res) => {
   try {
@@ -21,9 +24,7 @@ export const ShowStock = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-
 // To update the stock
-
 export const UpdateStock= async (req, res) => {
     const { productType } = req.body;
 
@@ -134,5 +135,18 @@ export const Individual= async (req, res) => {
     }
   } catch (error) {
     res.status(500).json({ message: error.message });
+  }
+};
+
+export const DailyUpdate = async (req,res) => {
+  try {
+    const dailyUpdate = await Stock.findByIdAndUpdate(
+      "6667fd54d142be69f7a5660e",
+      req.body,
+      {new: true}
+    );
+    res.status(200).json(dailyUpdate);
+  } catch (error) {
+    
   }
 };

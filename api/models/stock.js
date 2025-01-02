@@ -46,7 +46,7 @@ AddUndilutedKerrol: { type: Number, default: 0 },
   AddBioDigester:{type: Number,default: 0},
   AddToiletBalls: { type: Number, default: 0 },
 
-  createdAt:{type:new Date()}
+ // createdAt:{type:new Date()}
 }, { timestamps: true });
 
 const Stock = mongoose.model('Stock', stockSchema);

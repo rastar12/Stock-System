@@ -1,9 +1,6 @@
-// src/components/IndividualStockUpdateButton.jsx
 import React, { useState } from 'react';
 import { addIndividualStock } from '../services/stockService.js';
 import LoadingSpinner from './LoadingSpinner'; // Import the LoadingSpinner component
-
-
 
 const IndividualStockUpdateButton = () => {
   const chemicalOptions = [

@@ -16,7 +16,7 @@ const StockUpdateButton = ({ productType, label }) => {
       setLoading(false)
     }
   };
-
+  
   return (
     <button
      disabled={loading}

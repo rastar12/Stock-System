@@ -24,6 +24,7 @@ export default function NavBar() {
                 <Link
                   to={item.link}
                   className="inline-block text-base font-semibold py-2 px-3 uppercase text-white"
+                
                 >
                   {item.title}
                 </Link>

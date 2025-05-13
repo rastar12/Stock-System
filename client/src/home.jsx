@@ -14,13 +14,13 @@ export default function Home() {
       <h1 className='text-xl font-bold text-center uppercase mb-3'> Mbale Detergents stock inventory system</h1>
      
       <Link to={'/addStockHome'}>
-      <div className='p-3 rounded-lg bg-green-700 items-center text-white'>
+      <div className='p-3 rounded-lg bg-green-600 items-center text-white'>
         
         Add stock</div>
       </Link>
 
       <Link to={'/changePrice'}>
-      <div className='p-3 rounded-lg bg-slate-600 text-white font-bold mt-3'>
+      <div className='p-3 rounded-lg bg-slate-500 text-white font-bold mt-3'>
         Change price 
         </div>
         </Link>
@@ -31,12 +31,12 @@ export default function Home() {
        </Link>
 
        <Link to={'/viewSales'}>
-       <div className='p-3 bg-red-700 rounded-lg text-white mt-3'>
+       <div className='p-3 bg-red-600 rounded-lg text-white mt-3'>
        view stock records </div>
        </Link>
 
        <Link to={'/Mpesa'}>
-       <div className='p-3 bg-green-600 rounded-lg text-white mt-3'>
+       <div className='p-3 bg-green-500 rounded-lg text-white mt-3'>
        Accounts</div>
        </Link>
     </div>
